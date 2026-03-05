@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future in Justice | Digital Legal Portal</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+html {
+    scroll-behavior: smooth;
+}
+
+/* Smooth hero text animation */
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+</head>
+
+<body class="bg-slate-950 text-white font-sans">
+
+<!-- ================= NAVBAR ================= -->
+<header class="fixed w-full z-50 bg-slate-900/60 backdrop-blur-xl border-b border-slate-800">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        <h1 class="text-2xl font-bold text-blue-500 tracking-wide">
+            Future in Justice
+        </h1>
+
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="#home" class="hover:text-blue-400 transition">Home</a>
+            <a href="#about" class="hover:text-blue-400 transition">About</a>
+            <a href="#services" class="hover:text-blue-400 transition">Services</a>
+            <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+        </div>
+
+        <div class="space-x-3">
+            <button onclick="location.href='login.html'" 
+            class="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 transition text-sm shadow-lg shadow-blue-600/30">
+                Citizen Login
+            </button>
+
+            <button onclick="location.href='loginad.html'" 
+            class="border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-black transition text-sm">
+                Advocate
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home"
+class="h-screen flex flex-col justify-center items-center text-center px-6 pt-20 
+bg-cover bg-center bg-no-repeat"
+style="
+background-image: 
+linear-gradient(to right, rgba(255, 255, 255, 0.011), rgba(15, 23, 42, 0)),
+url('traffic.png');
+">
+
+    <div class="fade-in">
+        <h2 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">
+            The Future of <span class="text-blue-400">Digital Justice</span>
+        </h2>
+
+        <p class="text-lg text-slate-200 max-w-2xl mb-10 drop-shadow-md">
+            A secure and transparent legal platform connecting citizens and advocates 
+            for faster settlements, encrypted communication, and seamless case management.
+        </p>
+
+        <div class="space-x-4">
+            <button onclick="location.href='login.html'" 
+            class="bg-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transition shadow-xl shadow-blue-600/40">
+                Access Portal
+            </button>
+
+            <a href="#services" 
+            class="border border-white px-8 py-3 rounded-xl hover:bg-white hover:text-black transition">
+                Explore Services
+            </a>
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="py-24 px-6 bg-slate-900 text-center">
+    <div class="max-w-5xl mx-auto">
+        <h3 class="text-3xl font-bold text-blue-500 mb-6">About Future in Justice</h3>
+        <p class="text-slate-300 leading-relaxed text-lg">
+            Future in Justice is a next-generation digital legal ecosystem designed to modernize
+            the justice system through secure infrastructure, transparency, and digital transformation.
+            We empower citizens and advocates with technology-driven legal solutions.
+        </p>
+    </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="py-24 px-6 bg-slate-950">
+    <div class="max-w-7xl mx-auto">
+        <h3 class="text-3xl font-bold text-center text-blue-500 mb-16">Our Core Services</h3>
+
+        <div class="grid md:grid-cols-3 gap-10">
+
+            <div class="bg-slate-900 p-8 rounded-2xl shadow-lg hover:-translate-y-3 hover:shadow-blue-600/20 transition duration-300">
+                <h4 class="text-xl font-semibold mb-4">Digital Case Filing</h4>
+                <p class="text-slate-400 text-sm">
+                    File cases online and track real-time updates with complete transparency.
+                </p>
+            </div>
+
+            <div class="bg-slate-900 p-8 rounded-2xl shadow-lg hover:-translate-y-3 hover:shadow-blue-600/20 transition duration-300">
+                <h4 class="text-xl font-semibold mb-4">Advocate Dashboard</h4>
+                <p class="text-slate-400 text-sm">
+                    Professional management system for legal workflow, documents, and hearings.
+                </p>
+            </div>
+
+            <div class="bg-slate-900 p-8 rounded-2xl shadow-lg hover:-translate-y-3 hover:shadow-blue-600/20 transition duration-300">
+                <h4 class="text-xl font-semibold mb-4">Encrypted Communication</h4>
+                <p class="text-slate-400 text-sm">
+                    End-to-end secure messaging system between citizens and advocates.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact" class="bg-slate-950 border-t border-slate-800 pt-16 pb-8">
+    <div class="text-center text-xs text-slate-600">
+        © 2026 Future in Justice. All Rights Reserved.
+    </div>
+</footer>
+
+</body>
+</html>

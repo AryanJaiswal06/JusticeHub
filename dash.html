@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advocate Profile | Mahesh Soni</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#0f172a;
+    --accent:#c9a227;
+    --accent-dark:#a8841f;
+    --light:#f1f5f9;
+    --white:#ffffff;
+}
+
+/* ===== GLOBAL ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#eef2f7,#f8fafc);
+    color:#1e293b;
+}
+
+/* ===== NAVBAR ===== */
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:rgba(15,23,42,0.9);
+    backdrop-filter:blur(12px);
+    padding:15px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+header h1{
+    color:#3b82f6;
+    font-size:22px;
+}
+
+nav a{
+    color:#cbd5e1;
+    text-decoration:none;
+    margin:0 15px;
+    font-size:14px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+.nav-buttons button{
+    margin-left:10px;
+    padding:8px 16px;
+    border-radius:6px;
+    border:none;
+    cursor:pointer;
+    font-size:13px;
+    transition:0.3s;
+}
+
+.btn-blue{
+    background:#2563eb;
+    color:white;
+}
+
+.btn-blue:hover{
+    background:#1d4ed8;
+}
+
+.btn-outline{
+    background:none;
+    border:1px solid white;
+    color:white;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:black;
+}
+
+/* ===== HERO ===== */
+.hero{
+    margin-top:80px;
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.hero h1{
+    font-size:42px;
+    letter-spacing:1px;
+}
+
+.hero p{
+    margin-top:10px;
+    color:var(--accent);
+    font-size:18px;
+}
+
+/* ===== MAIN CARD ===== */
+.container{
+    max-width:1100px;
+    margin:-60px auto 50px;
+    padding:40px;
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.15);
+}
+
+/* ===== PROFILE TOP ===== */
+.profile-top{
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.profile-img{
+    width:260px;
+    height:320px;
+    object-fit:cover;
+    border-radius:20px;
+    border:5px solid var(--primary);
+    transition:0.4s;
+}
+
+.profile-img:hover{
+    transform:scale(1.05);
+}
+
+.profile-details h2{
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+.badge{
+    display:inline-block;
+    background:var(--accent);
+    color:white;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:13px;
+}
+
+.profile-details p{
+    margin:12px 0;
+}
+
+/* ===== SECTIONS ===== */
+.section{
+    margin-top:40px;
+}
+
+.section h3{
+    border-left:5px solid var(--accent);
+    padding-left:10px;
+    margin-bottom:15px;
+}
+
+.practice-list span{
+    display:inline-block;
+    background:var(--light);
+    padding:8px 15px;
+    margin:6px;
+    border-radius:25px;
+    transition:0.3s;
+    font-size:14px;
+}
+
+.practice-list span:hover{
+    background:var(--accent);
+    color:white;
+    transform:translateY(-3px);
+}
+
+/* ===== CONTACT CARD ===== */
+.contact-card{
+    margin-top:40px;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.3);
+}
+
+.contact-card h3{
+    margin-bottom:15px;
+}
+
+.contact-card p{
+    margin:10px 0;
+}
+
+.contact-card i{
+    color:var(--accent);
+    margin-right:8px;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 25px;
+    background:var(--accent);
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:var(--accent-dark);
+    transform:translateY(-3px);
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#020617;
+    color:#94a3b8;
+    padding:60px 60px 20px;
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+footer h2, footer h3{
+    color:white;
+    margin-bottom:12px;
+}
+
+footer a{
+    display:block;
+    color:#94a3b8;
+    text-decoration:none;
+    margin-bottom:6px;
+    font-size:14px;
+}
+
+footer a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    text-align:center;
+    margin-top:40px;
+    font-size:13px;
+    border-top:1px solid #1e293b;
+    padding-top:15px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    header{
+        flex-direction:column;
+        padding:15px;
+    }
+    .profile-top{
+        flex-direction:column;
+        text-align:center;
+        align-items:center;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Future in Justice</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+    </header>
+
+<div class="hero">
+    <h1>Advocate Mahesh Soni</h1>
+    <p>High Court & District Court Lawyer | 10+ Years Experience</p>
+</div>
+
+<div class="container">
+
+    <div class="profile-top">
+        <img src="https://via.placeholder.com/260x320" class="profile-img">
+
+        <div class="profile-details">
+            <h2>Adv. Mahesh Soni</h2>
+            <p><span class="badge">Enrollment No: GJ/1234/2015</span></p>
+            <p><strong>Experience:</strong> 10+ Years</p>
+            <p><strong>Court of Practice:</strong> High Court & District Court</p>
+            <p><strong>Location:</strong> Lucknow, Uttar Pradesh</p>
+            <a href="#" class="btn">Book Appointment</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>About Advocate</h3>
+        <p>
+            Advocate Mahesh Soni is a dedicated and result-driven legal professional
+            specializing in criminal, civil, and corporate litigation with strategic
+            courtroom advocacy and client-focused representation.
+        </p>
+    </div>
+
+    <div class="section">
+        <h3>Practice Areas</h3>
+        <div class="practice-list">
+            <span>Criminal Law</span>
+            <span>Civil Law</span>
+            <span>Family Law</span>
+            <span>Corporate Law</span>
+            <span>Traffic Law</span>
+            <span>Property Law</span>
+        </div>
+    </div>
+
+    <div class="contact-card">
+        <h3>Contact Information</h3>
+        <p><i class="fa-solid fa-phone"></i> +91 7408594696</p>
+        <p><i class="fa-solid fa-envelope"></i> advocate@email.com</p>
+        <p><i class="fa-solid fa-location-dot"></i> 2nd Floor, Law Chambers, Near High Court, Lucknow</p>
+    </div>
+
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div>
+            <h2>Future in Justice</h2>
+            <p>Secure digital legal settlement platform transforming the justice ecosystem through technology.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div>
+            <h3>Contact</h3>
+            <p>Email: support@futureinjustice.com</p>
+            <p>Phone: +91 0000000000</p>
+            <p>Location: India</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Future in Justice. All Rights Reserved.
+    </div>
+</footer>
+
+</body>
+</html>

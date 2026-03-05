@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future in Justice | FIJ Portal</title>
+
+<style>
+:root{
+    --primary:#0f172a;
+    --accent:#2563eb;
+    --accent-dark:#1d4ed8;
+    --bg:#f1f5f9;
+    --white:#ffffff;
+    --text:#1e293b;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:var(--bg);
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+    height:70px;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 40px;
+}
+
+.logo{
+    font-weight:bold;
+    font-size:18px;
+    color:#3b82f6;
+}
+
+.nav-links a{
+    color:#cbd5e1;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+/* ================= LAYOUT ================= */
+.container{
+    display:flex;
+    min-height:calc(100vh - 70px);
+}
+
+/* Sidebar */
+.sidebar{
+    width:240px;
+    background:var(--primary);
+    color:white;
+    padding:30px 20px;
+}
+
+.sidebar h2{
+    color:#3b82f6;
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:12px 10px;
+    color:#94a3b8;
+    cursor:pointer;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+.sidebar li:hover{
+    background:#1e293b;
+    color:white;
+}
+
+.sidebar li.active{
+    background:var(--accent);
+    color:white;
+}
+
+/* Main */
+.main{
+    flex:1;
+    padding:40px;
+}
+
+/* Card */
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:20px;
+}
+
+/* Button */
+.btn{
+    display:inline-block;
+    padding:8px 14px;
+    background:var(--accent);
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:14px;
+    margin-top:10px;
+}
+
+.btn:hover{
+    background:var(--accent-dark);
+}
+
+/* Search */
+.search-box{
+    margin-bottom:20px;
+}
+
+.search-box input{
+    width:100%;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+/* Profile */
+.profile-view{
+    display:none;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.1);
+}
+
+.profile-view img{
+    width:180px;
+    border-radius:12px;
+}
+
+.back-btn{
+    cursor:pointer;
+    color:var(--accent);
+    margin-bottom:20px;
+    display:inline-block;
+    font-weight:bold;
+}
+
+/* Footer */
+footer{
+    background:#020617;
+    color:#94a3b8;
+    padding:30px;
+    text-align:center;
+}
+
+/* Responsive */
+@media(max-width:900px){
+    .container{
+        flex-direction:column;
+    }
+    .sidebar{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">Future in Justice</div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Support</a>
+    </div>
+</div>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h2>FIJ Portal</h2>
+    <ul>
+        <li onclick="showSection('dashboard')" id="nav-dashboard" class="active">Dashboard</li>
+        <li onclick="showSection('directory')" id="nav-directory">Advocate Directory</li>
+        <li onclick="showSection('analytics')" id="nav-analytics">Analytics</li>
+        <li onclick="showSection('reports')" id="nav-reports">Reports</li>
+    </ul>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- DASHBOARD -->
+<div id="dashboardSection">
+    <h1>Dashboard Overview</h1>
+    <br>
+    <div class="grid">
+        <div class="card">
+            <h3>Total Advocates</h3>
+            <p style="font-size:24px;font-weight:bold;">30</p>
+        </div>
+        <div class="card">
+            <h3>Active Cases</h3>
+            <p style="font-size:24px;font-weight:bold;">250</p>
+        </div>
+        <div class="card">
+            <h3>Success Rate</h3>
+            <p style="font-size:24px;font-weight:bold;">94%</p>
+        </div>
+    </div>
+</div>
+
+<!-- DIRECTORY -->
+<div id="directorySection" style="display:none;">
+    <h1>Advocate Directory</h1>
+    <br>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search advocate..." onkeyup="filterAdvocates()">
+    </div>
+    <div id="advocateList" class="grid"></div>
+</div>
+
+<!-- ANALYTICS -->
+<div id="analyticsSection" style="display:none;">
+    <h1>Analytics</h1>
+    <br>
+    <div class="card">
+        <p>
+            The analytics module provides a comprehensive overview of advocate performance across 
+            various judicial levels. Based on the current data, advocates practicing in the Supreme Court 
+            demonstrate the highest average success rate of approximately 96%, reflecting strong case 
+            preparation, strategic litigation skills, and extensive courtroom experience. 
+        </p>
+        <br>
+        <p>
+            High Court advocates maintain an impressive performance index, with consistent outcomes 
+            in constitutional, civil, and criminal matters. District and Civil Court practitioners show 
+            steady growth trends, highlighting increasing efficiency and specialization in their respective 
+            domains. The system evaluates metrics such as case resolution rate, client satisfaction, 
+            average case duration, and overall win percentage to generate these insights.
+        </p>
+        <br>
+        <p>
+            These analytics assist administrators and stakeholders in identifying top-performing advocates, 
+            optimizing case allocation, and enhancing transparency within the legal ecosystem. 
+            Continuous performance monitoring ensures accountability and promotes a data-driven 
+            approach to justice delivery.
+        </p>
+    </div>
+</div>
+
+</div>
+
+<!-- REPORTS -->
+<div id="reportsSection" style="display:none;">
+    <h1>Reports</h1>
+    <br>
+    <div class="card">
+        <p>Download monthly performance report.</p>
+        <button class="btn" onclick="downloadReport()">Download Report</button>
+        <a href="report.pdf" download class="btn">
+    Download Report
+</a>
+
+    </div>
+</div>
+
+<!-- PROFILE VIEW -->
+<div id="profileView" class="profile-view"></div>
+
+</div>
+</div>
+
+<footer>
+    © 2026 Future in Justice. All Rights Reserved.
+</footer>
+
+<script>
+const advocates = [
+{ name:"Rajesh Khanna", exp:"15 Years", court:"Supreme Court", success:"98%", cases:1248, email:"rajesh@law.com" },
+{ name:"Meera Reddy", exp:"12 Years", court:"High Court", success:"95%", cases:954, email:"meera@law.com" },
+{ name:"Vikram Singh", exp:"10 Years", court:"District Court", success:"92%", cases:812, email:"vikram@law.com" },
+{ name:"Anita Sharma", exp:"14 Years", court:"High Court", success:"94%", cases:890, email:"anita@law.com" },
+{ name:"Rohan Desai", exp:"9 Years", court:"Civil Court", success:"90%", cases:650, email:"rohan@law.com" },
+{ name:"Pooja Mehta", exp:"11 Years", court:"Family Court", success:"93%", cases:720, email:"pooja@law.com" },
+{ name:"Karan Malhotra", exp:"13 Years", court:"Corporate Tribunal", success:"96%", cases:1020, email:"karan@law.com" },
+{ name:"Sneha Patel", exp:"8 Years", court:"District Court", success:"89%", cases:540, email:"sneha@law.com" },
+{ name:"Arjun Nair", exp:"16 Years", court:"Supreme Court", success:"97%", cases:1340, email:"arjun@law.com" },
+{ name:"Divya Iyer", exp:"7 Years", court:"Civil Court", success:"88%", cases:480, email:"divya@law.com" },
+{ name:"Mohit Verma", exp:"10 Years", court:"High Court", success:"91%", cases:770, email:"mohit@law.com" },
+{ name:"Neha Kapoor", exp:"12 Years", court:"Family Court", success:"94%", cases:850, email:"neha@law.com" },
+{ name:"Amit Trivedi", exp:"14 Years", court:"Supreme Court", success:"96%", cases:1100, email:"amit@law.com" },
+{ name:"Ritu Saxena", exp:"9 Years", court:"Civil Court", success:"90%", cases:600, email:"ritu@law.com" },
+{ name:"Harsh Vardhan", exp:"11 Years", court:"Corporate Tribunal", success:"93%", cases:780, email:"harsh@law.com" },
+{ name:"Simran Gill", exp:"6 Years", court:"District Court", success:"87%", cases:430, email:"simran@law.com" },
+{ name:"Rahul Joshi", exp:"15 Years", court:"High Court", success:"97%", cases:1200, email:"rahul@law.com" },
+{ name:"Tanvi Rao", exp:"8 Years", court:"Family Court", success:"89%", cases:510, email:"tanvi@law.com" },
+{ name:"Deepak Chauhan", exp:"13 Years", court:"Supreme Court", success:"95%", cases:990, email:"deepak@law.com" },
+{ name:"Priya Nanda", exp:"10 Years", court:"Civil Court", success:"92%", cases:760, email:"priya@law.com" },
+{ name:"Sanjay Kapoor", exp:"18 Years", court:"Supreme Court", success:"99%", cases:1500, email:"sanjay@law.com" },
+{ name:"Alok Mishra", exp:"9 Years", court:"High Court", success:"90%", cases:620, email:"alok@law.com" },
+{ name:"Bhavna Shah", exp:"11 Years", court:"Family Court", success:"91%", cases:710, email:"bhavna@law.com" },
+{ name:"Nitin Arora", exp:"13 Years", court:"Corporate Tribunal", success:"94%", cases:880, email:"nitin@law.com" },
+{ name:"Kavita Rao", exp:"7 Years", court:"Civil Court", success:"88%", cases:500, email:"kavita@law.com" }
+];
+
+function showSection(section){
+    document.getElementById("dashboardSection").style.display="none";
+    document.getElementById("directorySection").style.display="none";
+    document.getElementById("analyticsSection").style.display="none";
+    document.getElementById("reportsSection").style.display="none";
+    document.getElementById("profileView").style.display="none";
+
+    document.querySelectorAll(".sidebar li").forEach(item=>{
+        item.classList.remove("active");
+    });
+
+    document.getElementById(section+"Section").style.display="block";
+    document.getElementById("nav-"+section).classList.add("active");
+}
+
+function renderList(){
+    const container=document.getElementById("advocateList");
+    container.innerHTML="";
+    advocates.forEach((adv,index)=>{
+        container.innerHTML+=`
+        <div class="card">
+            <h3>Adv. ${adv.name}</h3>
+            <p><strong>Court:</strong> ${adv.court}</p>
+            <p><strong>Experience:</strong> ${adv.exp}</p>
+            <p><strong>Success:</strong> ${adv.success}</p>
+            <button class="btn" onclick="viewProfile(${index})">View Profile</button>
+        </div>`;
+    });
+}
+renderList();
+
+function viewProfile(index){
+    const adv=advocates[index];
+    document.getElementById("directorySection").style.display="none";
+    const profile=document.getElementById("profileView");
+    profile.style.display="block";
+    profile.innerHTML=`
+        <span class="back-btn" onclick="showSection('directory')">← Back</span>
+        <div style="display:flex;gap:30px;flex-wrap:wrap;">
+            <img src="https://via.placeholder.com/180">
+            <div>
+                <h2>Adv. ${adv.name}</h2>
+                <p><strong>Experience:</strong> ${adv.exp}</p>
+                <p><strong>Court:</strong> ${adv.court}</p>
+                <p><strong>Solved Cases:</strong> ${adv.cases}</p>
+                <p><strong>Success Rate:</strong> ${adv.success}</p>
+                <p><strong>Email:</strong> ${adv.email}</p>
+                <button class="btn" onclick="location.href='mailto:${adv.email}'">Contact</button>
+            </div>
+        </div>`;
+}
+
+function filterAdvocates(){
+    const search=document.getElementById("searchInput").value.toLowerCase();
+    const cards=document.querySelectorAll("#advocateList .card");
+    cards.forEach(card=>{
+        const name=card.querySelector("h3").innerText.toLowerCase();
+        card.style.display=name.includes(search)?"block":"none";
+    });
+}
+
+function downloadReport(){
+    alert("Report Downloaded Successfully!");
+}
+</script>
+
+</body>
+</html>
